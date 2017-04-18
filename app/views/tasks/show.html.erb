@@ -1,7 +1,10 @@
 <h1><%= @task.name %></h1>
 <p><%= @task.details %></p>
+<p><%= @task.created_at %></p>
 <% if @task.complete  %>
   <h3>This task is done!</h3>
 <% end %>
 
-<%= link_to "All Tasks", "/tasks" %>
+<%= link_to "All Tasks", tasks_path %>
+<%= link_to "Edit Task",  edit_task_path(@task) %>
+<%= link_to "Delete", task_path(@task), method: :delete, data: { confirm: "Are you sure?" } %>

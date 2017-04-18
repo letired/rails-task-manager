@@ -3,11 +3,13 @@
 <ul>
   <% @tasks.each do |task| %>
    <li>
-      <h2><%= link_to task.name, "/tasks/#{task.id}" %></h2>
-      <p><%= task.details %></p>
+      <h2><%= link_to task.name, task_path(task) %></h2>
+      <p><%= task.created_at %></p>
       <% if task.complete  %>
         <h3>This task is done!</h3>
       <% end %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Create a new task", new_task_path  %>
